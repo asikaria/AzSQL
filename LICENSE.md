@@ -1,1 +1,2 @@
-Use under BSD license
+Use under Apache License 2.0
+
