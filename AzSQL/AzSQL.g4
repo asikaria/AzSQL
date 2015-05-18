@@ -8,6 +8,7 @@ select_clause:
 		K_SELECT column_list
 		K_FROM table_name
 		(where_clause)?
+		EOF
 		;
 
 column_list:

@@ -129,6 +129,7 @@ public partial class AzSQLParser : Parser {
 		public Table_nameContext table_name() {
 			return GetRuleContext<Table_nameContext>(0);
 		}
+		public ITerminalNode Eof() { return GetToken(AzSQLParser.Eof, 0); }
 		public Where_clauseContext where_clause() {
 			return GetRuleContext<Where_clauseContext>(0);
 		}
@@ -172,6 +173,7 @@ public partial class AzSQLParser : Parser {
 				}
 			}
 
+			State = 25; Match(Eof);
 			}
 		}
 		catch (RecognitionException re) {
@@ -222,29 +224,29 @@ public partial class AzSQLParser : Parser {
 		EnterRule(_localctx, 4, RULE_column_list);
 		int _la;
 		try {
-			State = 34;
+			State = 36;
 			switch (TokenStream.La(1)) {
 			case T__0:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 25; Match(T__0);
+				State = 27; Match(T__0);
 				}
 				break;
 			case ID:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 26; column_name();
-				State = 31;
+				State = 28; column_name();
+				State = 33;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.La(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 27; Match(COMMA);
-					State = 28; column_name();
+					State = 29; Match(COMMA);
+					State = 30; column_name();
 					}
 					}
-					State = 33;
+					State = 35;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.La(1);
 				}
@@ -294,7 +296,7 @@ public partial class AzSQLParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 36; Match(ID);
+			State = 38; Match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -337,7 +339,7 @@ public partial class AzSQLParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 38; Match(ID);
+			State = 40; Match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -383,8 +385,8 @@ public partial class AzSQLParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 40; Match(K_WHERE);
-			State = 41; expr(0);
+			State = 42; Match(K_WHERE);
+			State = 43; expr(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -535,7 +537,7 @@ public partial class AzSQLParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 56;
+			State = 58;
 			switch (TokenStream.La(1)) {
 			case K_NOT:
 				{
@@ -543,8 +545,8 @@ public partial class AzSQLParser : Parser {
 				Context = _localctx;
 				_prevctx = _localctx;
 
-				State = 44; Match(K_NOT);
-				State = 45; expr(5);
+				State = 46; Match(K_NOT);
+				State = 47; expr(5);
 				}
 				break;
 			case ID:
@@ -552,17 +554,17 @@ public partial class AzSQLParser : Parser {
 				_localctx = new BaseComparisonContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 46; Match(ID);
-				State = 47; Match(COMPARISON_OP);
-				State = 49;
+				State = 48; Match(ID);
+				State = 49; Match(COMPARISON_OP);
+				State = 51;
 				_la = TokenStream.La(1);
 				if (_la==NEGATION) {
 					{
-					State = 48; Match(NEGATION);
+					State = 50; Match(NEGATION);
 					}
 				}
 
-				State = 51; literal();
+				State = 53; literal();
 				}
 				break;
 			case T__1:
@@ -570,16 +572,16 @@ public partial class AzSQLParser : Parser {
 				_localctx = new ParanthesizedExprContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 52; Match(T__1);
-				State = 53; expr(0);
-				State = 54; Match(T__2);
+				State = 54; Match(T__1);
+				State = 55; expr(0);
+				State = 56; Match(T__2);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			Context.Stop = TokenStream.Lt(-1);
-			State = 66;
+			State = 68;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,6,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.InvalidAltNumber ) {
@@ -588,32 +590,32 @@ public partial class AzSQLParser : Parser {
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 64;
+					State = 66;
 					switch ( Interpreter.AdaptivePredict(TokenStream,5,Context) ) {
 					case 1:
 						{
 						_localctx = new AndExprContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 58;
+						State = 60;
 						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
-						State = 59; Match(K_AND);
-						State = 60; expr(4);
+						State = 61; Match(K_AND);
+						State = 62; expr(4);
 						}
 						break;
 					case 2:
 						{
 						_localctx = new OrExprContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 61;
+						State = 63;
 						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-						State = 62; Match(K_OR);
-						State = 63; expr(3);
+						State = 64; Match(K_OR);
+						State = 65; expr(3);
 						}
 						break;
 					}
 					} 
 				}
-				State = 68;
+				State = 70;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,6,Context);
 			}
@@ -662,7 +664,7 @@ public partial class AzSQLParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 69;
+			State = 71;
 			_la = TokenStream.La(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << STRING_LITERAL) | (1L << NUMERIC_LITERAL) | (1L << BOOLEAN_LITERAL))) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
@@ -698,31 +700,32 @@ public partial class AzSQLParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\x430\xD6D1\x8206\xAD2D\x4417\xAEF1\x8D80\xAADD\x3\x1AJ\x4\x2\t\x2"+
+		"\x3\x430\xD6D1\x8206\xAD2D\x4417\xAEF1\x8D80\xAADD\x3\x1AL\x4\x2\t\x2"+
 		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
-		"\t\x3\x2\x3\x2\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x1A\n\x3\x3\x4\x3\x4"+
-		"\x3\x4\x3\x4\a\x4 \n\x4\f\x4\xE\x4#\v\x4\x5\x4%\n\x4\x3\x5\x3\x5\x3\x6"+
-		"\x3\x6\x3\a\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\x5\b\x34\n\b\x3\b"+
-		"\x3\b\x3\b\x3\b\x3\b\x5\b;\n\b\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\a\b\x43\n"+
-		"\b\f\b\xE\b\x46\v\b\x3\t\x3\t\x3\t\x2\x3\xE\n\x2\x4\x6\b\n\f\xE\x10\x2"+
-		"\x3\x3\x2\a\tI\x2\x12\x3\x2\x2\x2\x4\x14\x3\x2\x2\x2\x6$\x3\x2\x2\x2\b"+
-		"&\x3\x2\x2\x2\n(\x3\x2\x2\x2\f*\x3\x2\x2\x2\xE:\x3\x2\x2\x2\x10G\x3\x2"+
-		"\x2\x2\x12\x13\x5\x4\x3\x2\x13\x3\x3\x2\x2\x2\x14\x15\a\n\x2\x2\x15\x16"+
-		"\x5\x6\x4\x2\x16\x17\a\f\x2\x2\x17\x19\x5\n\x6\x2\x18\x1A\x5\f\a\x2\x19"+
-		"\x18\x3\x2\x2\x2\x19\x1A\x3\x2\x2\x2\x1A\x5\x3\x2\x2\x2\x1B%\a\x3\x2\x2"+
-		"\x1C!\x5\b\x5\x2\x1D\x1E\a\x12\x2\x2\x1E \x5\b\x5\x2\x1F\x1D\x3\x2\x2"+
-		"\x2 #\x3\x2\x2\x2!\x1F\x3\x2\x2\x2!\"\x3\x2\x2\x2\"%\x3\x2\x2\x2#!\x3"+
-		"\x2\x2\x2$\x1B\x3\x2\x2\x2$\x1C\x3\x2\x2\x2%\a\x3\x2\x2\x2&\'\a\x16\x2"+
-		"\x2\'\t\x3\x2\x2\x2()\a\x16\x2\x2)\v\x3\x2\x2\x2*+\a\v\x2\x2+,\x5\xE\b"+
-		"\x2,\r\x3\x2\x2\x2-.\b\b\x1\x2./\a\xF\x2\x2/;\x5\xE\b\a\x30\x31\a\x16"+
-		"\x2\x2\x31\x33\a\x6\x2\x2\x32\x34\a\x17\x2\x2\x33\x32\x3\x2\x2\x2\x33"+
-		"\x34\x3\x2\x2\x2\x34\x35\x3\x2\x2\x2\x35;\x5\x10\t\x2\x36\x37\a\x4\x2"+
-		"\x2\x37\x38\x5\xE\b\x2\x38\x39\a\x5\x2\x2\x39;\x3\x2\x2\x2:-\x3\x2\x2"+
-		"\x2:\x30\x3\x2\x2\x2:\x36\x3\x2\x2\x2;\x44\x3\x2\x2\x2<=\f\x5\x2\x2=>"+
-		"\a\r\x2\x2>\x43\x5\xE\b\x6?@\f\x4\x2\x2@\x41\a\xE\x2\x2\x41\x43\x5\xE"+
-		"\b\x5\x42<\x3\x2\x2\x2\x42?\x3\x2\x2\x2\x43\x46\x3\x2\x2\x2\x44\x42\x3"+
-		"\x2\x2\x2\x44\x45\x3\x2\x2\x2\x45\xF\x3\x2\x2\x2\x46\x44\x3\x2\x2\x2G"+
-		"H\t\x2\x2\x2H\x11\x3\x2\x2\x2\t\x19!$\x33:\x42\x44";
+		"\t\x3\x2\x3\x2\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3\x1A\n\x3\x3\x3\x3\x3"+
+		"\x3\x4\x3\x4\x3\x4\x3\x4\a\x4\"\n\x4\f\x4\xE\x4%\v\x4\x5\x4\'\n\x4\x3"+
+		"\x5\x3\x5\x3\x6\x3\x6\x3\a\x3\a\x3\a\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\x5"+
+		"\b\x36\n\b\x3\b\x3\b\x3\b\x3\b\x3\b\x5\b=\n\b\x3\b\x3\b\x3\b\x3\b\x3\b"+
+		"\x3\b\a\b\x45\n\b\f\b\xE\bH\v\b\x3\t\x3\t\x3\t\x2\x3\xE\n\x2\x4\x6\b\n"+
+		"\f\xE\x10\x2\x3\x3\x2\a\tK\x2\x12\x3\x2\x2\x2\x4\x14\x3\x2\x2\x2\x6&\x3"+
+		"\x2\x2\x2\b(\x3\x2\x2\x2\n*\x3\x2\x2\x2\f,\x3\x2\x2\x2\xE<\x3\x2\x2\x2"+
+		"\x10I\x3\x2\x2\x2\x12\x13\x5\x4\x3\x2\x13\x3\x3\x2\x2\x2\x14\x15\a\n\x2"+
+		"\x2\x15\x16\x5\x6\x4\x2\x16\x17\a\f\x2\x2\x17\x19\x5\n\x6\x2\x18\x1A\x5"+
+		"\f\a\x2\x19\x18\x3\x2\x2\x2\x19\x1A\x3\x2\x2\x2\x1A\x1B\x3\x2\x2\x2\x1B"+
+		"\x1C\a\x2\x2\x3\x1C\x5\x3\x2\x2\x2\x1D\'\a\x3\x2\x2\x1E#\x5\b\x5\x2\x1F"+
+		" \a\x12\x2\x2 \"\x5\b\x5\x2!\x1F\x3\x2\x2\x2\"%\x3\x2\x2\x2#!\x3\x2\x2"+
+		"\x2#$\x3\x2\x2\x2$\'\x3\x2\x2\x2%#\x3\x2\x2\x2&\x1D\x3\x2\x2\x2&\x1E\x3"+
+		"\x2\x2\x2\'\a\x3\x2\x2\x2()\a\x16\x2\x2)\t\x3\x2\x2\x2*+\a\x16\x2\x2+"+
+		"\v\x3\x2\x2\x2,-\a\v\x2\x2-.\x5\xE\b\x2.\r\x3\x2\x2\x2/\x30\b\b\x1\x2"+
+		"\x30\x31\a\xF\x2\x2\x31=\x5\xE\b\a\x32\x33\a\x16\x2\x2\x33\x35\a\x6\x2"+
+		"\x2\x34\x36\a\x17\x2\x2\x35\x34\x3\x2\x2\x2\x35\x36\x3\x2\x2\x2\x36\x37"+
+		"\x3\x2\x2\x2\x37=\x5\x10\t\x2\x38\x39\a\x4\x2\x2\x39:\x5\xE\b\x2:;\a\x5"+
+		"\x2\x2;=\x3\x2\x2\x2</\x3\x2\x2\x2<\x32\x3\x2\x2\x2<\x38\x3\x2\x2\x2="+
+		"\x46\x3\x2\x2\x2>?\f\x5\x2\x2?@\a\r\x2\x2@\x45\x5\xE\b\x6\x41\x42\f\x4"+
+		"\x2\x2\x42\x43\a\xE\x2\x2\x43\x45\x5\xE\b\x5\x44>\x3\x2\x2\x2\x44\x41"+
+		"\x3\x2\x2\x2\x45H\x3\x2\x2\x2\x46\x44\x3\x2\x2\x2\x46G\x3\x2\x2\x2G\xF"+
+		"\x3\x2\x2\x2H\x46\x3\x2\x2\x2IJ\t\x2\x2\x2J\x11\x3\x2\x2\x2\t\x19#&\x35"+
+		"<\x44\x46";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

@@ -82,11 +82,6 @@ namespace AzSQL
             parserTester(@"select a,b,c where not b==-3");
             parserTester(@"select from tabfoo where not b==-3");
             parserTester(@"select a,b,c from tabfoo where b eq -3");
-
-            //interestting case
-            // statement technically terminates at 'tabfoo', since that is the longest match possible.
-            // TODO: it is better to modify grammar to actually fail at superfluous input: in this 
-            //       case the 'not b==-3' is not superfluous, but ignored because 'where' is missing
             parserTester(@"select a,b,c from tabfoo not b==-3");  
 
         }
