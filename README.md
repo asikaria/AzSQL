@@ -43,6 +43,8 @@ IEnumerable<DynamicTableEntity> results = AzSQL.RunQuery(SQLQueryString, AzureSt
 
 
 ## Todo:
+Will do these, based on need or requests.
+
 -  Support 'TOP n' in SQL, and translate that to 'take n' in Azure's URL parameter
 -  support datetime literals
 -  test all variations of numeric literals
@@ -50,5 +52,7 @@ IEnumerable<DynamicTableEntity> results = AzSQL.RunQuery(SQLQueryString, AzureSt
   -  Likely have a different method/different grammar, to emphasize that this method is doing client-side processing
 -  implement client-side joins
   -  this can really blow in the user's face, if the joined tables are large. Be careful about warning user and see if thee is a way to do this without bowing up client memory for bad queries
+-  add `INTO <filename>` to grammar, to export the results of the query as csv file
+  -  maybe even do `INTO <filename> AS <format>` to export in one of supported formats
   
 
