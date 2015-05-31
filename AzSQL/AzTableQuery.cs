@@ -37,13 +37,14 @@ namespace AzSQL
             int count = 0;
             foreach (DynamicTableEntity row in resultSet)
             {
-                Console.WriteLine("PartitionKey: {0}", row.PartitionKey);
-                Console.WriteLine("RowKey: {0}", row.RowKey);
-                Console.WriteLine("Timestamp: {0}", row.Timestamp);
+                Console.WriteLine("PartitionKey:\t {0}", row.PartitionKey);
+                Console.WriteLine("RowKey:\t {0}", row.RowKey);
+                Console.WriteLine("Timestamp:\t {0}", row.Timestamp);
+                Console.WriteLine("ETag:\t {0}", row.ETag);
 
                 foreach (KeyValuePair<string, EntityProperty> field in row.Properties)
                 {
-                    Console.WriteLine("{0}: {1}", field.Key, EntityPropertyToString(field.Value));
+                    Console.WriteLine("{0}:\t {1}", field.Key, EntityPropertyToString(field.Value));
                 }
 
                 Console.WriteLine();

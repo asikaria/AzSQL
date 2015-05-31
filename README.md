@@ -54,5 +54,6 @@ Will do these, based on need or requests.
   -  this can really blow in the user's face, if the joined tables are large. Be careful about warning user and see if thee is a way to do this without bowing up client memory for bad queries
 -  add `INTO <filename>` to grammar, to export the results of the query as csv file
   -  maybe even do `INTO <filename> AS <format>` to export in one of supported formats
+- Package into NuGet
   
 
